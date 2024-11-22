@@ -1,24 +1,13 @@
+@Library("test_library") _
 pipeline {
     agent any
     stages {
-        stage("Clone") {
+        stage("Calling") {
             steps {
-                echo "Cloning the code from GitHub."
-            }
-        }
-        stage("Build") {
-            steps {
-                echo "Building the cloned code from GitHub."
-            }
-        }
-        stage("Test") {
-            steps {
-                echo "Testing the code."
-            }
-        }
-        stage("Deploy") {
-            steps {
-                echo "Deploying the application."
+                echo "Calling the Global Library."
+                script{
+                    lib_module_1.func_from_module_1()
+                }
             }
         }
     }
